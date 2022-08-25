@@ -159,3 +159,65 @@ insert into personel values('1003', 'Ayşe Tan', 65000);
 insert into personel values('1004', 'Derya Soylu', 95000);
 insert into personel values('1005', 'Yavuz Bal', 80000);
 insert into personel values('1006', 'Sena Beyaz', 100000);
+
+/*
+    AND (ve): Belirtilen şartların her ikiside gerçekleşiyorsa o kayıt listelenir
+Bir tanesi gerçekleşmezse listelemez
+    Select * from matematik sinav1 > 50 AND sınav2 > 50
+Hem sınav1 hemde sınav2 alanı, 50'den büyük olan kayıtları listeler
+    OR (VEYA): Belirtilen şartlardan biri gerçekleşirse, kayıt listelenir
+    select * From matematik sınav>50 OR sınav2>50 
+Hem sınav1 veya sınav2 alanı, 50 den büyük olan kayıtları listeler    
+*/
+select * from personel
+--id'si 1003 ile 1005 arasında olan personel bilgisini listeleyiniz
+select * from personel WHERE id BETWEEN '1003' and '1005';
+--2. YOL
+select * from personel WHERE id>='1003' and id<='1005';
+-- Maaşı 70000 veya ismi Sena olan personeli listele
+select * from personel where maas=70000 OR isim ='Sena Beyaz'
+--IN : Birden fazla mantıksal ifade ile tanımlayabileceğimiz durumları tek komutta yazabilme 
+--imkanı verir
+--Farklı sütunlar için IN kullanılamaz
+--id'si 1001,1002 ve 1004 olan personelin bilgilerini listele
+select * from personel WHERE id ='1001' or id ='1002' or id = '1004';
+-- 2. YOL
+select * from personel WHERE id IN ('1001','1002','1004');
+-- Maaşı sadece 70000, 100000 olan personeli listele
+select * from personel WHERE maas IN (70000,100000);
+/*
+    AND (ve): Belirtilen şartların her ikiside gerçekleşiyorsa o kayıt listelenir
+Bir tanesi gerçekleşmezse listelemez
+    Select * from matematik sinav1 > 50 AND sınav2 > 50
+Hem sınav1 hemde sınav2 alanı, 50'den büyük olan kayıtları listeler
+    OR (VEYA): Belirtilen şartlardan biri gerçekleşirse, kayıt listelenir
+    select * From matematik sınav>50 OR sınav2>50 
+Hem sınav1 veya sınav2 alanı, 50 den büyük olan kayıtları listeler    
+*/
+select * from personel
+--id'si 1003 ile 1005 arasında olan personel bilgisini listeleyiniz
+select * from personel WHERE id BETWEEN '1003' and '1005';
+--2. YOL
+select * from personel WHERE id>='1003' and id<='1005';
+-- Maaşı 70000 veya ismi Sena olan personeli listele
+select * from personel where maas=70000 OR isim ='Sena Beyaz'
+--IN : Birden fazla mantıksal ifade ile tanımlayabileceğimiz durumları tek komutta yazabilme 
+--imkanı verir
+--Farklı sütunlar için IN kullanılamaz
+--id'si 1001,1002 ve 1004 olan personelin bilgilerini listele
+select * from personel WHERE id ='1001' or id ='1002' or id = '1004';
+-- 2. YOL
+select * from personel WHERE id IN ('1001','1002','1004');
+-- Maaşı sadece 70000, 100000 olan personeli listele
+select * from personel WHERE maas IN (70000,100000);
+
+/*
+SELECT - LIKE koşulu
+LIKE : Sorgulama yaparken belirli (pattern) kalıp ifadeleri kullanabilmemizi sağlar
+ILIKE : Sorgulama yaparken büyük/küçük harfe duyarsız olarak eşleştirir
+LIKE : ~~
+ILIKE : ~~*
+NOT LIKE : !~~
+NOT ILIKE :!~~*
+% --> 0 veya daha fazla karakteri belirtir.
+_ --> Tek bir karakteri belirtir
