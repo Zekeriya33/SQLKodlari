@@ -1,3 +1,14 @@
+/*
+SELECT - LIKE koşulu
+LIKE : Sorgulama yaparken belirli (pattern) kalıp ifadeleri kullanabilmemizi sağlar
+ILIKE : Sorgulama yaparken büyük/küçük harfe duyarsız olarak eşleştirir
+LIKE : ~~
+ILIKE : ~~*
+NOT LIKE : !~~
+NOT ILIKE :!~~*
+% --> 0 veya daha fazla karakteri belirtir.
+_ --> Tek bir karakteri belirtir
+*/
 create table personel
 (
 id char(4),
@@ -29,4 +40,7 @@ select * from personel where isim not like '%a%'
 -- 1. harfi A ve 7. harfi a olan personeli listeleyin
 select * from personel where isim~~* 'A______a%'
 --Sondan ikinci karakteri 'r' olan "isim" değerlerini listeleyiniz.
-select isim from personel where isim like '%r__' 
+select isim from personel where isim like '%r__'
+
+select * from personel WHERE isim Not ILIKE '%t';
+select * from personel WHERE isim Not ILIKE '%b';
